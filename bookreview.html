@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BOOK REVIEW</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="utf-8">
+</head>
+<body>
+
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+		<a class="navbar-brand" href="{{ url_for('index') }}">Book Review</a>
+		<ul class="nav navbar-nav navbar-right">
+			{% if session["logged_in"] == True %}
+				<li><a href="login.html">Login</a></li>
+			{% else %}
+		</ul>
+</nav>
+
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+<div class="container">
+	<h2> BOOK REVIEW </h2>	
+</div>
+
+<div class="container">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">ISBN</th>
+				<th scope="col">Author</th>
+				<th scope="col">Title</th>
+				<th scope="col">Year</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr>
+				<th scope="row"> 1000923897 </th>
+				<td> Kevin Kwan </td>
+				<td> Crazy Rizh Asian </td>
+				<td> 2013 </td>
+			</tr>
+		</tbody>
+	</table>
+
+<div class="container">
+	<h2>
+		Comments
+	</h2>
+</div>
+
+<form action="{{ url_for('review', id=book_info[0]) }}" method="post">
+	<select name="review">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+	</select><br>
+
+	<textarea name="text" rows="4" cols="50">
+	</textarea><br>
+
+	<br><button type="submit" class="btn btn-primary">Send Review</button>
+</form>
+
+<div class="container">
+	<h4>Goodreads Reviews: </h4> <br>
+	<h5> Average Score: 4/5 </h2>
+	<h5> Number of reviews: 1.2k </h2>
+	
+</div>
+
+<div class="container">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">Rating</th>
+				<th scope="col">Comment</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr>
+					<td>Dzaki</td>
+					<td>Recommended to read. The storyline is unpredictable. Such a mindblowing story.</td>
+			</tr>
+		</tbody>
+	</table>
+	
+</div>
+
+</body>
+</html>
